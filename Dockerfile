@@ -1,14 +1,12 @@
-FROM alpine:3.8
+FROM alpine:3.4
 
 ENV LANG C.UTF-8
 
 RUN set -x && \
     apk add --no-cache \
-              openrc \
-              libreswan \
+              strongswan \
               xl2tpd \
               ppp \
-    && mkdir -p /var/run/pluto \
     && mkdir -p /var/run/xl2tpd \
     && touch /var/run/xl2tpd/l2tp-control
 

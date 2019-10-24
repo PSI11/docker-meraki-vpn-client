@@ -1,0 +1,11 @@
+
+version: '2'
+services:
+  meraki-vpn-client:
+    privileged: true
+    build: .
+    env_file: secrets.env
+    container_name: meraki-vpn-client
+    hostname: meraki-vpn-client
+    volumes:
+      - /lib/modules:/lib/modules:ro
