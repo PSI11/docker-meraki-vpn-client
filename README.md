@@ -16,14 +16,27 @@ here is all you need:
 4. Password
 
 ## Run
-Setup environment variables for your credentials and config in `secrets.env`
+Create `docker-compose.yml`
+
+    version: '2'
+    services:
+      meraki-vpn-client:
+        image: nicolabeghin/docker-meraki-vpn-client
+        env_file: secrets.env
+        privileged: true
+        container_name: meraki-vpn-client
+        hostname: meraki-vpn-client
+        volumes:
+          - /lib/modules:/lib/modules:ro
+
+Setup credentials in `secrets.env`
 
     VPN_SERVER_IPV4=x.x.x.x
     VPN_PSK=meraki
     VPN_USERNAME=myuser@myhost.com
     VPN_PASSWORD=mypass
     
-Now run it (you can daemonize of course after debugging):
+Now run it:
 
     docker-compose up
 
