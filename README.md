@@ -21,7 +21,7 @@ Create `docker-compose.yml`
     version: '2'
     services:
       meraki-vpn-client:
-        image: nicolabeghin/docker-meraki-vpn-client
+        image: psi11/docker-meraki-vpn-client
         env_file: secrets.env
         privileged: true
         container_name: meraki-vpn-client
